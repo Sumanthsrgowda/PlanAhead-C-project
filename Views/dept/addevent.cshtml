@@ -1,0 +1,64 @@
+﻿@model WebApplication1.Models.eventmodel
+
+@{
+    ViewData["Title"] = "AddEvent";
+    Layout = "_base.cshtml";
+}
+
+<h4>Add Event</h4>
+
+<hr />
+<div class="row bgcolor">
+    <div class="col-md-4">
+        <form asp-action="addevent" asp-controller="dept" method="post" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            
+            <div class="form-group">
+                <label asp-for="EventName" class="control-label"></label>
+                <input asp-for="EventName" class="form-control" />
+                <span asp-validation-for="EventName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EventDept" class="control-label"></label>
+                <input asp-for="EventDept" class="form-control" disabled/>
+                <span asp-validation-for="EventDept" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Description" class="control-label"></label>
+                <textarea style="width:8cm;" rows="5" asp-for="Description" class="form-control"></textarea>
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Date" class="control-label"></label>
+                <input asp-for="Date" class="form-control" type="date"/>
+                <span asp-validation-for="Date" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="coverphoto" class="control-label">Poster</label>
+                <div class="custom-file">
+                    <input asp-for="coverphoto" type="file" class="custom-file-input" id="flfrontimg" onchange="document.getElementById('frontimprv').src=window.URL.createObjectURL(this.files[0])"/>
+                    <label class="custom-file-label" for="flfrontimg"></label>
+                </div>
+                <span asp-validation-for="coverphoto" class="text-danger"></span>
+                <img id="frontimgprv" src=""/>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary button-align" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="events">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script type="text/javascript">
+        $(".custom-file-input").on("change",function(){
+            var filename=$(this).val().split("\\").pop();
+            $(this).siblings(".custom-file-input").addClass("selected").html(filename);
+        });
+    </script>
+}

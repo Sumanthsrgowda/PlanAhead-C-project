@@ -1,0 +1,62 @@
+﻿@model IEnumerable<WebApplication1.Models.eventmodel>
+@{
+    ViewData["Title"] = "EventsList";
+    Layout = "_base.cshtml";
+}
+
+<h4>Events List</h4>
+<table class="table" style="background-color:white;">
+    <thead>
+        <tr>
+            <!--<th>
+            @Html.DisplayNameFor(model => model.Id)
+            </th>-->
+            <th>
+                @Html.DisplayNameFor(model => model.EventName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EventDept)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Date)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Response)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Poster)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <!--<td>
+                @Html.DisplayFor(modelItem => item.Id)
+                </td>-->
+                <td>
+                    @Html.DisplayFor(modelItem => item.EventName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EventDept)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Date)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Response)
+                </td>
+                <td>
+                    <img src="@Html.DisplayFor(modelItem => item.Poster)" style="width:100px;" />
+                </td>
+                <td>
+                    <a asp-controller="dept" asp-action="veiwdetails" asp-route-id="@item.Id"><input type="button" value="View Details" class="btn btn-primary" /></a> |
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

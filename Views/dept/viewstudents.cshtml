@@ -1,0 +1,36 @@
+﻿@model IEnumerable<WebApplication1.Models.signupmodel>
+@{
+    ViewData["Title"] = "EventsList";
+    Layout = "_base.cshtml";
+}
+
+<h4>Students List</h4>
+<hr />
+<table class="table" style="background-color:white;">
+    <thead>
+        <tr>
+            <th>
+            @Html.DisplayNameFor(model => model.regno)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.stdname)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                @Html.DisplayFor(modelItem => item.regno)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.stdname)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<div>
+    <a asp-action="geteventbydept">Back to List</a>
+</div>

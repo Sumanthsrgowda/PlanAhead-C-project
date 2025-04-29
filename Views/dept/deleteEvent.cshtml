@@ -1,0 +1,33 @@
+﻿@model WebApplication1.Models.eventmodel
+
+@{
+    ViewData["Title"] = "DeleteEvent";
+    Layout = "_base.cshtml";
+}
+
+
+
+<h4>Delete Event</h4>
+<hr />
+<div class="bgcolor">
+    
+    
+    <form asp-action="deleteEvent" method="post">
+
+            <div class="form-group">
+                <label asp-for="EventName" class="control-label"></label>
+                <input asp-for="EventName" class="form-control" />
+                <span asp-validation-for="EventName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EventDept" class="control-label"></label>
+                <input asp-for="EventDept" class="form-control" disabled/>
+                <span asp-validation-for="EventDept" class="text-danger"></span>
+            </div>
+        
+        <input type="submit" value="Delete" class="btn btn-danger button-align" onclick="return confirm('Are you sure,Want to Delete the Event?')" /> |
+
+        <h6 class="text-dark">@ViewBag.errormsg</h6>
+        <a asp-action="events">Back to List</a>
+    </form>
+</div>

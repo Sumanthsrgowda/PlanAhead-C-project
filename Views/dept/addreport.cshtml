@@ -1,0 +1,74 @@
+﻿@model WebApplication1.Models.eventmodel
+
+@{
+    ViewData["Title"] = "veiwdetails";
+    Layout = "_base.cshtml";
+}
+
+
+<h4>Event Details</h4>
+<hr />
+<div class="bgcolor">
+    
+    <form asp-action="addreport" asp-controller="dept" method="post">
+    <dl class="row">
+        <!--<dt class = "col-sm-2">
+        @Html.DisplayNameFor(model => model.Id)
+        </dt>
+        <dd class = "col-sm-10">
+        @Html.DisplayFor(model => model.Id)
+        </dd>-->
+        <dt class="col-sm-2 dtd">
+            @Html.DisplayNameFor(model => model.EventName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.EventName)
+        </dd>
+            <dt class="col-sm-2 dtd">
+            @Html.DisplayNameFor(model => model.EventDept)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.EventDept)
+        </dd>
+            <dt class="col-sm-2 dtd">
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+            <dt class="col-sm-2 dtd">
+            @Html.DisplayNameFor(model => model.Date)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Date)
+        </dd>
+            <dt class="col-sm-2 dtd">
+            @Html.DisplayNameFor(model => model.Response)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Response)
+        </dd>
+            <dt class="col-sm-2 dtd">
+            @Html.DisplayNameFor(model => model.Poster)
+        </dt>
+        <dd class="col-sm-10">
+            <img src="@Html.DisplayFor(model => model.Poster)" style="width:200px;" />
+        </dd>
+            <dt class="col-sm-2 dtd">
+            @Html.DisplayNameFor(model => model.Report)
+        </dt>
+        <dd class="col-sm-10">
+            <label asp-for="Report" class="control-label"></label>
+            <textarea style="width:12cm;" rows="10" asp-for="Report" class="form-control"></textarea>
+            <span asp-validation-for="Report" class="text-danger"></span>
+        </dd>
+    </dl>
+        <div class="form-group">
+            <input type="submit" value="Add Report" class="btn btn-primary button-align" />
+        </div>
+    </form>
+</div>
+<div>
+    <h6 class="text-black">@ViewBag.errormsg</h6>
+    <a asp-action="geteventbydept">Back to List</a>
+</div>
