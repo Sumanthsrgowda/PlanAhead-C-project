@@ -1,0 +1,62 @@
+﻿@model WebApplication1.Models.signupmodel
+
+@{
+    ViewData["Title"] = "Signup";
+}
+<h3 class="text-center">signup</h3>
+<hr />
+<body name="body1">
+    <center>
+        <div class="login-pf-page" style=" padding-bottom: 10px; margin-right: 400px; ">
+        <div class="container-center" style="padding-bottom: 10px;margin-top: 50px;margin-left: 420px;">
+            <div class="row">
+              
+            <form asp-action="signup" name="form1">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group" >
+                <label asp-for="regno" class="control-label and"></label>
+                <input asp-for="regno" class="form-control" />
+            </div>
+            <div class="form-group" >
+                            <label asp-for="stdname" class="control-label and"></label>
+                <input asp-for="stdname" class="form-control" disabled id="sname"/>
+            </div>
+            <div class="form-group">
+                            <label asp-for="stdbranch" class="control-label and"></label>
+                <input asp-for="stdbranch" class="form-control" disabled/>
+            </div>
+            <div class="form-group">
+                            <label asp-for="stdyear" class="control-label and"></label>
+                <input asp-for="stdyear" class="form-control" disabled/>
+            </div>
+            <div class="form-group" name="" >
+                            <label asp-for="email" class="control-label and"></label>
+                <input asp-for="email" class="form-control" />
+                <span asp-validation-for="email" class="text-danger"></span>
+                
+            </div>
+            <div class="form-group">
+                <label asp-for="password" class="control-label and"></label>
+                <input asp-for="password" class="form-control" />
+                <span asp-validation-for="password" class="text-danger"></span>
+            </div>
+                <h6 class="text-danger">@ViewBag.errormsg</h6>
+                <h6 class="text-dark">@ViewBag.success</h6>
+            <div class="form-group">
+                    <input type="submit" value="create account" class="btn btn-primary" onclick="let ename=document.getElementById('sname').nodeValue if(ename.value !=' '){document.getElementById('sname').hidden=false;}" />
+            </div>
+        </form>
+        
+            </div><!-- row -->
+        </div><!-- container -->
+    </div><!-- login-pf-page -->
+    </center>
+</body>
+
+<div>
+    <a asp-action="login">Back to login</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
