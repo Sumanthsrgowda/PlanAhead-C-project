@@ -1,0 +1,23 @@
+﻿.container-center {
+    background: rgb(223 224 222);
+    width: 500px;
+    padding: 30px;
+    text-align: center;
+    margin-left: 500px;
+    margin-top: 100px;
+    border-radius: 20px;
+    border-width: 20px;
+}
+
+.bg {
+    background-color: aqua;
+}
+
+.main-header-bg {
+    background-image: url("bg.jpg");
+    background-blend-mode: lighten;
+    background-size: cover;
+    padding-bottom: 30px;
+}
+    
+

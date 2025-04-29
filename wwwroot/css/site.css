@@ -1,0 +1,48 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+.table-bg{
+    background-color:white;
+    border:1px;
+    border-color:black;
+}
+.td {
+    border: 1px;
+    border-color: black;
+}
+h4{
+    text-align:center;
+}
+.bgcolor{
+    background-color:white;
+}
+.button-align {
+    margin-left: 5px;
+    margin-bottom: 5px;
+    margin-top: 5px;
+}
+.dtd {
+    padding-left:50px;
+}
+th {
+    padding-left: 50px;
+}
+.and {
+    margin-right: 500px;
+}
+
