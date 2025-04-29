@@ -1,0 +1,35 @@
+﻿@model IEnumerable<WebApplication1.Models.deptmodel>
+
+@{
+    ViewData["Title"] = "Department";
+    Layout = "_base.cshtml";
+}
+<p>
+    <a asp-controller="admin" asp-action="addDepartment">Add Department</a> |
+    <a asp-controller="admin" asp-action="deletedepartment">Remove Department</a> |
+</p>
+
+<h3>Department</h3>
+<table class="table" style="background-color:white;">
+    <thead>
+        <tr>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+                <div class="card" style="width: 18rem;">
+                    <div class="card-body">
+                        <h3 class="card-title">@Html.DisplayFor(modelItem => item.DepartmentName)</h3>
+                        <h6 class="card-subtitle mb-2 text-muted">@Html.DisplayFor(modelItem => item.DepartmentName)</h6>
+                        <p class="card-text"></p>
+                        <a asp-controller="admin" asp-action="GetEventByDept" asp-route-name="@item.DepartmentName"><input type="button" value="View" class="btn btn-primary button-align" /></a> |
+                    </div>
+                </div>
+                <h1>----------------------------------------------</h1>
+            
+        </tr>
+}
+    </tbody>
+</table>
