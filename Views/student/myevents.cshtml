@@ -1,0 +1,46 @@
+﻿@model IEnumerable<WebApplication1.Models.eventmodel>
+@{
+    ViewData["Title"] = "EventsList";
+    Layout = "_base.cshtml";
+}
+
+<h4>Events List</h4>
+<hr />
+<table class="table" style="background-color:white;">
+    <thead>
+        <tr>
+            <!--<th>
+            @Html.DisplayNameFor(model => model.Id)
+            </th>-->
+            <th>
+                @Html.DisplayNameFor(model => model.EventName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <!--<td>
+                @Html.DisplayFor(modelItem => item.Id)
+                </td>-->
+                <td>
+                    @Html.DisplayFor(modelItem => item.EventName)
+                </td>
+                <td>
+                    <a asp-controller="student" asp-action="veiwdetail" asp-route-id="@item.Id"><input type="button" value="View Details" class="btn btn-primary" /></a> |
+                </td>
+                <td>
+                    <a asp-controller="student" asp-action="removemyevent" asp-route-id="@item.Id"><input type="submit" value="Remove" class="btn btn-danger" onclick="return confirm('Are you sure,Want to Remove the Event?')" style="margin-right:500px" /></a>
+                </td>
+                
+            </tr>
+        }
+    </tbody>
+</table>
